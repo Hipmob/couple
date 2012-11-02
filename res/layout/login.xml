@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_vertical|center_horizontal"
+    android:padding="5sp" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:padding="5sp" >
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="0sp"
+            android:clickable="true"
+            android:text="@string/label_account_needed"
+            android:textColor="@color/solid_white" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/signup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/buttonbg"
+            android:minWidth="100sp"
+            android:text="@string/button_login"
+            android:textColor="@color/solid_white"
+            android:textStyle="bold" >
+        </Button>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/login"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:ellipsize="start"
+            android:maxLines="1"
+            android:minWidth="275sp" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/password"
+            android:layout_alignLeft="@+id/password"
+            android:layout_alignRight="@+id/password"
+            android:layout_marginBottom="10sp"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:ellipsize="start"
+            android:maxLines="1" >
+        </EditText>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:alpha="1"
+            android:background="@null"
+            android:src="@drawable/logo" />
+    </RelativeLayout>
+
+</RelativeLayout>

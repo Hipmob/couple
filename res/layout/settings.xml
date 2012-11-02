@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/solid_white"
+    android:gravity="center_horizontal"
+    android:padding="0sp" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/navbar"
+        android:contentDescription="@string/content_description_titlebar"
+        android:src="@drawable/settings" />
+
+    <Button
+        android:id="@+id/support"
+        style="@style/supportbutton"
+        android:layout_width="65dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/buttonbg"
+        android:paddingBottom="2sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:paddingTop="2sp"
+        android:text="@string/button_support"
+        android:textColor="@color/solid_white" >
+    </Button>
+
+    <Button
+        android:id="@+id/chat"
+        style="@style/detaillabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/buttonbg"
+        android:minWidth="200sp"
+        android:text="@string/button_chat"
+        android:textColor="@color/solid_white"
+        android:textStyle="bold" >
+    </Button>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="5sp" >
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="@string/hint_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:ellipsize="start"
+            android:minWidth="275sp" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name"
+            android:layout_alignRight="@+id/name"
+            android:layout_below="@id/name"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="@string/hint_email"
+            android:inputType="text|textEmailAddress"
+            android:ellipsize="start"
+            android:maxLines="1" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name"
+            android:layout_alignRight="@+id/name"
+            android:layout_below="@+id/email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="@string/hint_password"
+            android:inputType="text|textPassword"
+            android:ellipsize="start"
+            android:maxLines="1" >
+        </EditText>
+
+        <ViewFlipper
+            android:id="@+id/current_state"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp" >
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stage_0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/caption_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:text="@string/label_invite_someone" />
+
+                <EditText
+                    android:id="@+id/couple_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_0"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text|textEmailAddress"
+                    android:maxLines="1"
+                    android:minWidth="275sp" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/invite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/couple_email"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonbg"
+                    android:minWidth="100sp"
+                    android:text="@string/button_invite"
+                    android:textColor="@color/solid_white"
+                    android:textStyle="bold" >
+                </Button>
+            </RelativeLayout>
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stage_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/caption_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_invite_waiting_1" />
+
+                <EditText
+                    android:id="@+id/invited_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:ellipsize="start"
+                    android:minWidth="275sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/caption_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/invited_email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_invite_waiting_2" />
+
+                <Button
+                    android:id="@+id/cancel_invitation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_1"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonbg"
+                    android:minWidth="100sp"
+                    android:text="@string/button_cancel_invite"
+                    android:textColor="@color/solid_white"
+                    android:textStyle="bold" >
+                </Button>
+            </RelativeLayout>
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stage_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/caption_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_coupled_with" />
+
+                <EditText
+                    android:id="@+id/partner_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minWidth="275sp" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/breakup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/partner_email"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonbg"
+                    android:minWidth="100sp"
+                    android:text="@string/button_breakup"
+                    android:textColor="@color/solid_white"
+                    android:textStyle="bold" >
+                </Button>
+            </RelativeLayout>
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stage_3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/caption_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_request_declined" />
+
+                <EditText
+                    android:id="@+id/partner_declined_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minWidth="275sp" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/invite_another"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/partner_declined_email"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonbg"
+                    android:minWidth="100sp"
+                    android:text="@string/button_invite_another"
+                    android:textColor="@color/solid_white"
+                    android:textStyle="bold" >
+                </Button>
+            </RelativeLayout>
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stage_4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/caption_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_request_brokenup1" />
+
+                <EditText
+                    android:id="@+id/partner_cancelled_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:enabled="false"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minWidth="275sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/caption_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/partner_cancelled_email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_request_brokenup2" />
+
+                <Button
+                    android:id="@+id/request_another"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/caption_6"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonbg"
+                    android:minWidth="100sp"
+                    android:text="@string/button_request_another"
+                    android:textColor="@color/solid_white"
+                    android:textStyle="bold" >
+                </Button>
+            </RelativeLayout>
+        </ViewFlipper>
+    </RelativeLayout>
+
+</RelativeLayout>

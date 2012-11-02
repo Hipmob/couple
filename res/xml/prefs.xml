@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:key="@string/pref_online"
+        android:summary="@string/label_pref_online_summary"
+        android:title="@string/label_pref_online" >
+    </Preference>
+
+    <PreferenceCategory android:title="@string/label_pref_about_you" >
+        <EditTextPreference
+            android:key="@string/pref_name"
+            android:summary="@string/label_pref_name_summary"
+            android:title="@string/label_pref_name" >
+        </EditTextPreference>
+        <EditTextPreference
+            android:key="@string/pref_email"
+            android:summary="@string/label_pref_email_summary"
+            android:title="@string/label_pref_email" >
+        </EditTextPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/label_pref_about" >
+        <Preference
+            android:key="@string/pref_version"
+            android:title="@string/label_pref_version" >
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
