@@ -171,11 +171,7 @@ public class CoupleLogin extends Activity implements OnClickListener
 						m.obj = detail.getString("error");
 					}else if(detail.has("guid") && detail.has("name")){
 						m.what = SUCCESS;
-						if(detail.has("partner")){
-							m.obj = new String[]{ detail.getString("guid"), detail.getString("name"), detail.getString("partner") };
-						}else{
-							m.obj = new String[]{ detail.getString("guid"), detail.getString("name") };
-						}
+						m.obj = detail;
 					}
 				}
 			}catch(JSONException jse){
@@ -210,25 +206,32 @@ public class CoupleLogin extends Activity implements OnClickListener
 		
 	}
 	
-	private void success(String[] results)
+	private void success(JSONObject results)
 	{
 		// done
 		String email = emailInput.getText().toString().trim();
 		removeDialog(DIALOG_LOGGING_IN);
 
+		JSONObject props = new JSONObject();
+		
 		// save the guid to the preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor edit = prefs.edit();
-		edit.putString(getString(R.string.pref_guid), results[0]);
-		edit.putString(getString(R.string.pref_name), results[1]);
-		edit.putString(getString(R.string.pref_email), email);
-		if(results.length > 2) edit.putString(getString(R.string.pref_coupled), results[2]);
-		edit.commit();
-
-		JSONObject props = new JSONObject();
-		try{
-			props.put("guid", results[0]);
-			props.put("name", results[1]);
+		try{			
+			edit.putString(getString(R.string.pref_guid), results.getString("guid"));
+			edit.putString(getString(R.string.pref_name), results.getString("name"));
+			edit.putString(getString(R.string.pref_email), email);
+			
+			if(results.has("partnerName")){
+				edit.putString(getString(R.string.pref_coupled), results.getString("partnerEmail"));
+				edit.putString(getString(R.string.pref_partner), results.getString("partnerGuid"));
+				edit.putString(getString(R.string.pref_partner_name), results.getString("partnerName"));
+				edit.putString(getString(R.string.pref_coupled_guid), results.getString("requestGuid"));
+			}		
+			edit.commit();
+	
+			props.put("guid", results.getString("guid"));
+			props.put("name", results.getString("name"));
 			props.put("email", email);
 		}catch(Exception e1){}
 		mMixpanel.track("Login", props);
@@ -250,7 +253,7 @@ public class CoupleLogin extends Activity implements OnClickListener
 		{
 			switch (msg.what){
 			case SUCCESS:
-				success((String[])msg.obj);
+				success((JSONObject)msg.obj);
 				break;
 			case FAILURE:
 				failure(msg.obj.toString());
